@@ -1,7 +1,7 @@
 import React from "react";
 import style from './Botao.module.scss'
 
-class Botao extends React.Component {
+class Botao extends React.Component <{ children: React.ReactNode}>{
     render() {
         const estaAtivo = true;
         const styles = {
@@ -9,7 +9,7 @@ class Botao extends React.Component {
         }
         return (
             <button className={style.botao}>
-                Botao
+                {this.props.children}
             </button>
         )
     }

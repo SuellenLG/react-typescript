@@ -1,4 +1,5 @@
 import React from "react";
+import Item from "./Item";
 import style from './Lista.module.scss'
 
 function Lista() {
@@ -18,15 +19,30 @@ function Lista() {
             <h2> Estudos do dia</h2>
             <ul>
                 {tarefas.map((item, index) => (
-                    <li key={index} className="item">
-                        <h3> {item.tarefa} </h3>
-                        <span> {item.tempo} </span>
-                    </li>
+                    <Item
+                        key={index}
+                        tarefa={item.tarefa}
+                        tempo={item.tempo}
+                    />
                 ))}
 
-                </ul>
+            </ul>
         </aside>
     )
 }
 
 export default Lista;
+
+
+/*
+
+outra forma de escrever:
+1)utilizar todos os atributos que existem dentro daquele objeto como prop para esse componente
+
+{tarefas.map((item, index) => (
+                    <Item
+                        {...item}
+                    />
+
+
+*/
