@@ -1,10 +1,8 @@
+import { Itarefa } from "../../types/tarefa";
 import Item from "./Item";
 import style from './Lista.module.scss'
 
-interface Itarefa {
-    tarefa: string,
-    tempo: string
-}
+
 
 function Lista({ tarefas}:{ tarefas: Itarefa[]}) {
     
@@ -15,8 +13,7 @@ function Lista({ tarefas}:{ tarefas: Itarefa[]}) {
                 {tarefas.map((item, index) => (
                     <Item
                         key={index}
-                        tarefa={item.tarefa}
-                        tempo={item.tempo}
+                        {...item}
                     />
                 ))}
 
@@ -35,7 +32,9 @@ outra forma de escrever:
 
 {tarefas.map((item, index) => (
                     <Item
-                        {...item}
+                        key={index}
+                        tarefa={item.tarefa}
+                        tempo={item.tempo}
                     />
 
 
